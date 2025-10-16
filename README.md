@@ -3,7 +3,7 @@
 ## Summary
 This web application was generated to fulfill the following requirement:
 
-Update the Hello World application to add an animated rainbow effect to the text, add a counter that shows how many times the time button has been clicked, and include a dark mode toggle button.
+Create a simple Hello World web application with a colorful gradient background, centered text saying 'Hello World!', and a button that shows the current time when clicked.
 
 ## Setup
 This is a static web application that requires no installation. Simply open `index.html` in a web browser.
@@ -28,4 +28,4 @@ This application is deployed via GitHub Pages and is accessible at the Pages URL
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
-*Generated on 2025-10-16 - Round 2*
+*Generated on 2025-10-16 - Round 1*
