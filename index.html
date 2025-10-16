@@ -1,152 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World!</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(45deg, #FF6B6B, #6BFF6B, #6B6BFF, #FF6BFF);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-      color: white;
-      text-align: center;
-      transition: background-color 0.3s, color 0.3s;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ff4b1f, #1fddff); /* Colorful Gradient */
+            color: white;
+            text-align: center;
+        }
 
-    body.dark-mode {
-      background-color: #333;
-      color: #eee;
-    }
+        .container {
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* subtle shadow */
+        }
 
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+        }
 
-    .container {
-      padding: 20px;
-      border-radius: 10px;
-      background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
-      transition: background-color 0.3s;
-    }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
 
-    .dark-mode .container {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
+        button:hover {
+            background-color: #3e8e41; /* Darker green on hover */
+        }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbow 5s linear infinite;
-    }
-
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 1.2em;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #3e8e41;
-    }
-
-    .dark-mode button {
-      background-color: #555;
-      color: #fff;
-    }
-
-    .dark-mode button:hover {
-      background-color: #777;
-    }
-
-    #time {
-      margin-top: 20px;
-      font-size: 1.2em;
-    }
-
-    #clickCounter {
-      margin-top: 10px;
-      font-size: 1em;
-    }
-
-    #darkModeToggle {
-      margin-top: 20px;
-      padding: 10px 15px;
-      font-size: 1em;
-      background-color: #2196F3;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    #darkModeToggle:hover {
-      background-color: #0b7dda;
-    }
-
-    .dark-mode #darkModeToggle {
-      background-color: #aaa;
-      color: #333;
-    }
-
-    .dark-mode #darkModeToggle:hover {
-      background-color: #ccc;
-    }
-  </style>
+        #timeDisplay {
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Shadow for time display */
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hello World!</h1>
-    <button onclick="showTime()">Show Time</button>
-    <div id="time"></div>
-    <div id="clickCounter">Button Clicked: 0 times</div>
-    <button id="darkModeToggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-  </div>
+    <div class="container">
+        <h1>Hello World!</h1>
+        <button onclick="displayTime()">Show Current Time</button>
+        <div id="timeDisplay"></div>
+    </div>
 
-  <script>
-    let clickCount = 0;
-    const body = document.body;
-
-    function showTime() {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString();
-      document.getElementById("time").textContent = "Current Time: " + timeString;
-
-      clickCount++;
-      document.getElementById("clickCounter").textContent = "Button Clicked: " + clickCount + " times";
-    }
-
-    function toggleDarkMode() {
-      body.classList.toggle("dark-mode");
-    }
-  </script>
+    <script>
+        function displayTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString(); // Get local time string
+            document.getElementById('timeDisplay').textContent = 'Current Time: ' + timeString;
+        }
+    </script>
 </body>
 </html>
